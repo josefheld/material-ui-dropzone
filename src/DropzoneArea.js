@@ -85,7 +85,7 @@ class DropzoneArea extends Component{
         if(this.state.fileObjects.length + files.length > this.props.filesLimit){
             this.setState({
                 openSnackBar: true,
-                snackbarMessage: `Maximum allowed number of files exceeded. Only ${this.props.filesLimit} allowed`, 
+                snackbarMessage: `Die maximal zulässige Anzahl von Dateien wurde überschritten. Nur ${this.reps.filesLimit} erlaubt`, 
                 snackbarVariant: 'error'
             });
         }else{
@@ -103,7 +103,7 @@ class DropzoneArea extends Component{
                         if(this.props.onDrop){
                             this.props.onDrop(file)
                         }
-                        message += `File ${file.name} successfully added. `;
+                        message += `Datei ${file.name} erfolgreich hinzugefügt. `;
                         count++; // we cannot rely on the index because this is asynchronous
                         if(count === files.length){
                             // display message when the last one fires
@@ -133,7 +133,7 @@ class DropzoneArea extends Component{
             }
             this.setState({
                 openSnackBar: true,
-                snackbarMessage: ('File ' + file.name+ ' removed'),
+                snackbarMessage: ('Datei ' + file.name+ ' entfernt'),
                 snackbarVariant: 'info'
             });
         });
@@ -143,10 +143,10 @@ class DropzoneArea extends Component{
         rejectedFiles.forEach((rejectedFile) => {
             message = `File ${rejectedFile.name} was rejected. `;
             if(!this.props.acceptedFiles.includes(rejectedFile.type)){
-                message += 'File type not supported. '
+                message += 'Dateityp wird nicht unterstützt. '
             }
             if(rejectedFile.size > this.props.maxFileSize){
-                message += 'File is too big. Size limit is ' + convertBytesToMbsOrKbs(this.props.maxFileSize) + '. ';
+                message += 'Die Datei ist zu groß. Die max. erlaubte Größe ist ' + convertBytesToMbsOrKbs(this.props.maxFileSize) +  '. ';
             }
         });
         if(this.props.onDropRejected){
@@ -230,7 +230,7 @@ DropzoneArea.defaultProps = {
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
     filesLimit: 3,
     maxFileSize: 3000000,
-    dropzoneText: 'Drag and drop an image file here or click',
+    dropzoneText: 'Ziehen Sie Ihre Datei per Drag & Drop hierher oder klicken Sie hier',
     showPreviews: false, // By default previews show up under in the dialog and inside in the standalone
     showPreviewsInDropzone: true,
     showFileNamesInPreview: false,
