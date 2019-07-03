@@ -1645,7 +1645,7 @@ var DropzoneArea = function (_Component) {
                     }
                     _this2.setState({
                         openSnackBar: true,
-                        snackbarMessage: 'File ' + file.name + ' removed',
+                        snackbarMessage: 'Datei ' + file.name + ' entfernt',
                         snackbarVariant: 'info'
                     });
                 });
@@ -1695,7 +1695,7 @@ var DropzoneArea = function (_Component) {
             if (this.state.fileObjects.length + files.length > this.props.filesLimit) {
                 this.setState({
                     openSnackBar: true,
-                    snackbarMessage: 'Maximum allowed number of files exceeded. Only ' + this.props.filesLimit + ' allowed',
+                    snackbarMessage: 'Die maximal zul\xE4ssige Anzahl von Dateien wurde \xFCberschritten. Nur ' + this.reps.filesLimit + ' erlaubt',
                     snackbarVariant: 'error'
                 });
             } else {
@@ -1715,7 +1715,7 @@ var DropzoneArea = function (_Component) {
                             if (_this3.props.onDrop) {
                                 _this3.props.onDrop(file);
                             }
-                            message += 'File ' + file.name + ' successfully added. ';
+                            message += 'Datei ' + file.name + ' erfolgreich hinzugef\xFCgt. ';
                             count++; // we cannot rely on the index because this is asynchronous
                             if (count === files.length) {
                                 // display message when the last one fires
@@ -1740,10 +1740,10 @@ var DropzoneArea = function (_Component) {
             rejectedFiles.forEach(function (rejectedFile) {
                 message = 'File ' + rejectedFile.name + ' was rejected. ';
                 if (!_this4.props.acceptedFiles.includes(rejectedFile.type)) {
-                    message += 'File type not supported. ';
+                    message += 'Dateityp wird nicht unterstützt. ';
                 }
                 if (rejectedFile.size > _this4.props.maxFileSize) {
-                    message += 'File is too big. Size limit is ' + convertBytesToMbsOrKbs(_this4.props.maxFileSize) + '. ';
+                    message += 'Die Datei ist zu groß. Die max. erlaubte Größe ist ' + convertBytesToMbsOrKbs(_this4.props.maxFileSize) + '. ';
                 }
             });
             if (this.props.onDropRejected) {
@@ -1837,7 +1837,7 @@ DropzoneArea.defaultProps = {
     acceptedFiles: ['image/*', 'video/*', 'application/*'],
     filesLimit: 3,
     maxFileSize: 3000000,
-    dropzoneText: 'Drag and drop an image file here or click',
+    dropzoneText: 'Ziehen Sie Ihre Datei per Drag & Drop hierher oder klicken Sie hier',
     showPreviews: false, // By default previews show up under in the dialog and inside in the standalone
     showPreviewsInDropzone: true,
     showFileNamesInPreview: false,
